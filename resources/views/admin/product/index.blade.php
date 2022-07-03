@@ -58,7 +58,7 @@
           
             <td>{{$product->category->slug}}</td>
             <td>
-            <a class="btn btn-primary" href="">Edit</a>
+            <a class="btn btn-primary" href="{{route('product.edit',$product->id)}}">Edit</a>
             </td>
             <td>
               
