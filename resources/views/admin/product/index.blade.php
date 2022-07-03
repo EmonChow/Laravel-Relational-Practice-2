@@ -19,15 +19,12 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Category </h2>
+                <h2> Product </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{route('category.create')}}"> Create New Category</a>
+                <a class="btn btn-success" href="{{route('product.create')}}"> Create New Product</a>
             </div>
-            <br>
-            <div class="pull-left">
-                <a class="btn btn-success" href="{{route('product.list')}}"> Go to Product List</a>
-            </div>
+          
 
         </div>
     </div>
@@ -41,21 +38,22 @@
     <table class="table table-bordered" >
         <tr>
             <th>SL</th>
-            <th> Name</th>
+            <th> Category Name</th>
+            <th>Product Name</th>
+            <th>Price</th>
             <th>Slug</th>
-          
             <th>Action</th>
         </tr>
-        @foreach($categories as $category)
+      @foreach($products as $product)
         <tr>
         
-             <td>{{$category->id}}</td>
-            <td> {{$category->name}}</td>
+             <td>{{$product->id}}</td>
+            <td>{{$product->category->name}}</td>
          
-            <td> {{$category->slug}}</td>
-
+            <td>{{$product->name}}</td>
+            <td>{{$product->price}}</td>
           
-
+            <td>{{$product->category->slug}}</td>
             <td>
             <a class="btn btn-primary" href="">Edit</a>
             </td>
@@ -72,8 +70,8 @@
             </td>
         
         </tr>
-   @endforeach
-
+ 
+         @endforeach
 
      
 

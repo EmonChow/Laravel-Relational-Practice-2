@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +25,18 @@ Route::prefix('admin')->group(function(){
         //  Route::get('/students/{students}', 'destroy')->name('students.delete');
         
     });
+
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('product', 'index')->name('product.list');
+        Route::get('/product/create', 'create')->name('product.create');
+         Route::post('/product', 'store')->name('product.store');
+        // Route::get('/students/edit/{students}', 'edit')->name('student.edit');
+        //  Route::post('/students/{students}', 'update')->name('students.update');
+        //  Route::get('/students/{students}', 'destroy')->name('students.delete');
+        
+    });
+
+
+
     
 });
