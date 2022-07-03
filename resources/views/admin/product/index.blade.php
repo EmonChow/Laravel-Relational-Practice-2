@@ -25,6 +25,9 @@
                 <a class="btn btn-success" href="{{route('product.create')}}"> Create New Product</a>
             </div>
           
+            <div class="pull-right">
+                <a class="btn btn-success" href="{{route('category.list')}}"> Go To Category</a>
+            </div>
 
         </div>
     </div>
