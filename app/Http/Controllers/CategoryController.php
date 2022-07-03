@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use App\Models\Categories;
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      return view('admin.category.index');
+        $categories = Categories::all();
+      return view('admin.category.index',compact('categories'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.category.create');
     }
 
     /**
@@ -34,7 +36,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Categories::create([
+            'name' => $request->name,
+            'slug' =>Str::slug($request->slug) ,
+        ]);
+       return redirect('admin/category')->with('message' , 'Created Successfully');
     }
 
     /**
