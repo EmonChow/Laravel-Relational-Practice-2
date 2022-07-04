@@ -80,9 +80,21 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( Request $request ,$product_id)
     {
-       
+  
+
+        $product = Categories::findOrFail($request->category_id);
+        $product->products()->where('id',$product_id)->update([
+            'category_id' => $request->category_id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'slug' => Str::slug($request-> slug),
+        ]);
+ 
+        return redirect('admin/product')->with('message', 'product updated successfully');
+
+
     }
 
     /**
@@ -93,6 +105,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Products::findOrFail($id)->delete();
+        return redirect('admin/product')->with('message' , 'Deleted Successfully');
     }
 }

@@ -64,7 +64,7 @@
               
        
                   
-                <form action="" method="get">
+                <form action="{{route('product.delete',$product->id)}}" method="get">
    
                     @csrf
              
