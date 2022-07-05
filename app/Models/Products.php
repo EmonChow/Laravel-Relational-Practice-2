@@ -12,11 +12,11 @@ class Products extends Model
 
     protected $table = 'products';
 
-    protected $fillable = [
-        'category_id',
-        'name',
-        'price',
-        'slug'
+    protected $guarded = [
+        // 'category_id',
+        // 'name',
+        // 'price',
+        // 'slug'
       
     ];
   

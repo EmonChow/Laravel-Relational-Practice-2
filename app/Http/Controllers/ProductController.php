@@ -39,11 +39,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
        $categories = Categories::findOrFail($request->category_id);
-       $categories->products()->create([
-           'name' => $request->name,
+       $categories->products()->create(
+        // $request->all()
+        
+        [
+           'name' => $request->name, 
            'price' => $request->price,
            'slug' => Str::slug($request-> slug),
-       ]);
+       ]
+    
+    );
 
        return redirect('admin/product')->with('message', 'product stored successfully');
     }
