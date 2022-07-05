@@ -60,9 +60,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit ($id)
     {
-        //
+        $categories= Categories::findOrFail($id);
+        return view('admin.category.edit',compact('categories'));
     }
 
     /**
@@ -74,7 +75,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Categories::update([
+            'name' => $request->name,
+            'slug' =>Str::slug($request->slug)
+        ]);
+       return redirect('admin/category')->with('message' , 'Updated Successfully');
     }
 
     /**

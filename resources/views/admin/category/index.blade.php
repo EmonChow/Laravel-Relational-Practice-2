@@ -57,7 +57,7 @@
           
 
             <td>
-            <a class="btn btn-primary" href="">Edit</a>
+            <a class="btn btn-primary" href="{{route('category.edit',$category->id)}}">Edit</a>
             </td>
             <td>
               

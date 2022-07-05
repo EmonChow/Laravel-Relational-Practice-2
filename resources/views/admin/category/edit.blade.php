@@ -39,21 +39,21 @@
     </div>
 @endif
 
-<form action="{{route('category.store')}}" method='POST' >
+<form action="{{route('category.update',$categories->id)}}" method='POST' >
     @csrf
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Type Your Name">
+                <input type="text" name="name" value="{{ $categories->name}}" class="form-control" placeholder="Type Your Name">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-              <strong>Email:</strong>
-              <input type="text" name="slug" class="form-control" placeholder="Slug">
+              <strong>Slug:</strong>
+              <input type="text" name="slug" value="{{ $categories->slug}}" class="form-control" placeholder="Slug">
             </div>
         </div>
 

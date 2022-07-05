@@ -20,8 +20,8 @@ Route::prefix('admin')->group(function(){
         Route::get('category', 'index')->name('category.list');
         Route::get('/category/create', 'create')->name('category.create');
         Route::post('/category', 'store')->name('category.store');
-        // Route::get('/students/edit/{students}', 'edit')->name('student.edit');
-        //  Route::post('/students/{students}', 'update')->name('students.update');
+         Route::get('/category/edit/{id}', 'edit')->name('category.edit');
+          Route::post('/category/{id}', 'update')->name('category.update');
           Route::get('/category/{category}', 'destroy')->name('category.delete');
         
     });
