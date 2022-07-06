@@ -77,7 +77,12 @@
             </div>
         </div>
 
-
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Slug:</strong>
+                <input type="text" name="slug" value="{{$product->category->slug}}"  class="form-control" placeholder="Type Your slug">
+            </div>
+        </div>
         
 
 

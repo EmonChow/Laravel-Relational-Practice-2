@@ -12,13 +12,10 @@ class Products extends Model
 
     protected $table = 'products';
 
-    protected $guarded = [
-        // 'category_id',
-        // 'name',
-        // 'price',
-        // 'slug'
+    protected $guarded = [];
+        
       
-    ];
+  
   
        public function category(){
         return $this->belongsTo(Categories::class, 'category_id', 'id');
