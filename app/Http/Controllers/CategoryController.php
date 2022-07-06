@@ -36,10 +36,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Categories::create([
-            'name' => $request->name,
-            'slug' =>Str::slug($request->slug) ,
-        ]);
+        Categories::create($request->all());
        return redirect('admin/category')->with('message' , 'Created Successfully');
     }
 
