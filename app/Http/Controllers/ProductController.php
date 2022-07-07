@@ -39,12 +39,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
        $categories = Categories::findOrFail($request->category_id);
-       $categories->products()->create(
-        $request->all()
-        
-    
-    );
-
+       $categories->products()->create($request->all());
+       
        return redirect('admin/product')->with('message', 'product stored successfully');
     }
 
@@ -82,16 +78,11 @@ class ProductController extends Controller
      */
     public function update( Request $request ,$id)
     {
-  
+     
 
         $product = Categories::findOrFail($request->category_id);
-        $product->products()->where('category_id',$id)->update([
-           
-            'name' => $request->name,
-            'price' => $request->price,
-            'slug' => Str::slug($request->slug),
-        ]);
-         
+        $product->products()->where('id',$id)->update(request()->except(['_token']));
+      
          return redirect('admin/product')->with('message', 'product updated successfully');
 
 

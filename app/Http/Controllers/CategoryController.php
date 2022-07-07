@@ -72,11 +72,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Categories::update([
-            'name' => $request->name,
-            'slug' =>Str::slug($request->slug)
-        ]);
+        $data = request()->except(['_token']);
+        Categories::where('id', '=', $id)->update($data);
+      
        return redirect('admin/category')->with('message' , 'Updated Successfully');
+  
+     
     }
 
     /**

@@ -78,7 +78,12 @@
         </div>
 
 
-        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Slug:</strong>
+                <input type="text" name="slug" class="form-control" placeholder="Type Your Name">
+            </div>
+        </div>
 
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
